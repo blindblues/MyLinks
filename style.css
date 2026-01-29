@@ -108,7 +108,8 @@ body {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem;
+    /* Reduced padding */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
     position: relative;
@@ -237,21 +238,48 @@ body {
 /* Mobile Optimizations */
 @media (max-width: 480px) {
     .glass-container {
-        width: 95%;
-        padding: 2rem 1rem;
+        width: 100%;
+        /* Full width check */
+        max-width: 100%;
+        min-height: 100vh;
+        /* Make it take full screen or just fit content? "Farla stare tutta nello schermo" -> suggests fitting content without scrolling if possible. */
+        /* Actually "diminuisci la grandezza... per farla stare tutta nello schermo" implies it's too big/tall.  */
+        /* If I make min-height: auto and remove fixed height, it fits content. */
+        min-height: auto;
+        border-radius: 0;
+        /* Optional: if full screen, maybe no radius? Or keep it card like? User said "tab". I'll keep radius but small or 0 if full width */
+        border-radius: 20px;
+        margin: 1rem;
+        /* Add margin so it IS a card "in" the screen */
+        width: calc(100% - 2rem);
+        padding: 1.5rem 1rem;
+    }
+
+    .profile-header {
+        margin-bottom: 1.5rem;
+        /* Reduced margin */
     }
 
     .profile-img-container {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
+        margin-bottom: 1rem;
     }
 
     .profile-name {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
+    }
+
+    .profile-bio {
+        font-size: 0.85rem;
     }
 
     .link-item {
-        padding: 0.9rem 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .links-list {
+        gap: 0.8rem;
     }
 }
 

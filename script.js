@@ -1,13 +1,4 @@
-// Init Vanilla Tilt - Mobile Only
-if (window.VanillaTilt && window.innerWidth <= 768) {
-    VanillaTilt.init(document.querySelector(".glass-container"), {
-        max: 5,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.2,
-        gyroscope: true,
-    });
-}
+
 
 // Staggered delay for simple entrance animation
 document.addEventListener("DOMContentLoaded", () => {
